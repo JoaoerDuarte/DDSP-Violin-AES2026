@@ -1,0 +1,23 @@
+# Baseline: DDSP with the learnable FIR filter as body filter.
+
+model:
+  sampling_rate: 16000
+  block_size: 64
+  signal_length: 64000
+  n_harmonic: 40
+  n_bands: 65
+  encoder:
+    rnn_channels: 512
+    z_dims: 16
+    z_time_steps: 125
+  decoder:
+    rnn_channels: 512
+    ch: 512
+    layers_per_stack: 3
+  resonance_length: 2048
+  resonance_position: after_noise
+
+loss:
+  mssl:
+    scales: [2048, 1024, 512, 256, 128, 64]
+    overlap: 0.75

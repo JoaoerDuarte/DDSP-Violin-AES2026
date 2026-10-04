@@ -1,0 +1,9 @@
+torch>=2.0
+torchaudio>=2.0
+numpy
+scipy
+pandas
+librosa
+soundfile
+pyyaml
+tqdm

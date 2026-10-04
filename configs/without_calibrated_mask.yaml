@@ -1,0 +1,35 @@
+# Ablation: plain bow-position mask |sin(π n / k)| instead of the calibrated one.
+
+model:
+  sampling_rate: 16000
+  block_size: 64
+  signal_length: 64000
+  n_harmonic: 40
+  n_bands: 65
+  encoder:
+    rnn_channels: 512
+    z_dims: 16
+    z_time_steps: 125
+  decoder:
+    rnn_channels: 512
+    ch: 512
+    layers_per_stack: 3
+  source:
+    use_harmonic_encoder: true
+    harmonic_encoder_n_harmonics: 10
+    discrete_head: true
+    bow_mask_type: plain
+    bow_mask_n_harmonics: 10
+    alpha_range: [-6.0, 1.0]
+    n_residuals: 40
+    residual_range_db: 6.0
+  resonance_length: 2048
+
+loss:
+  mssl:
+    scales: [2048, 1024, 512, 256, 128, 64]
+    overlap: 0.75
+  hrl_weight: 30.0
+
+train:
+  steps: 100000

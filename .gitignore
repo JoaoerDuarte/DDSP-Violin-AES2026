@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Data, checkpoints and evaluation products
+runs/
+preprocessed/
+dataset/
+output/
+*.pth
+*.npy
+*.npz
+*.pkl
+
+# Audio
+*.wav
+*.flac
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
